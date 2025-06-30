@@ -11,7 +11,10 @@
           <a class="btn btn-outline-primary" href="{{ route('attendance.index') }}">TOP</a>
           <a class="btn btn-outline-primary" href="#">プロフィール編集</a>
           <a class="btn btn-outline-primary" href="#">CSV出力</a>
-          <a class="btn btn-outline-danger" href="{{ route('login')}}">ログアウト</a>
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="btn btn-outline-danger">ログアウト</button>
+          </form>
           <a class="btn btn-outline-secondary" href="#">ヘルプ</a>
       </div>
     </div>

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Attendance;
+use App\Models\Report;
+use Illuminate\Support\Facades\Auth;
 
 class AttendanceController extends Controller
 {
@@ -12,8 +13,8 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-        $Attendanceall = Attendance::all();
-        return view('sections.dailyandshare',compact('Attendanceall'));
+        $reportsall = Report::all();
+        return view('sections.daily',compact('reportsall'));
     }
 
     /**
@@ -28,8 +29,16 @@ class AttendanceController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    {  
+
+
+        Report::create([
+                'user_id' => Auth::id(),  
+                'clock_in' => $request->input('datetime'),
+                'title' => $request->input('title'),
+                'body' => $request->input('body'),   
+        ]);
+        return redirect()->route('attendance.index')->with('success', '追加が完了しました。');
     }
 
     /**

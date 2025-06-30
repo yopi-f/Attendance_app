@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attendances', function (Blueprint $table) {
+        Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->string('username',30);
+            $table->unsignedBigInteger('user_id');
+            $table->string('title',60)->nullable();
+            $table->string('body'); 
             $table->timestamp('clock_in');
-            $table->timestamp('clock_out')->nullable();
-            $table->string('status')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');//外部キー制約
         });
     }
 
