@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Report;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class AttendanceController extends Controller
@@ -12,9 +13,13 @@ class AttendanceController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $reportsall = Report::all();
-        return view('sections.daily',compact('reportsall'));
+    {   
+       
+        $dailyall = Report::where('flag','daily')->get(); //日報の一覧
+        $shareall = Report::where('flag','shareall')->get(); //共有の一覧
+        $reportsall = Report::all();//書き込みのお知らせで使用
+        $usersall = User::all();//ユーザー毎のログイン日時で使用
+        return view('sections.daily',compact('dailyall','shareall','usersall','reportsall'));
     }
 
     /**
@@ -36,7 +41,9 @@ class AttendanceController extends Controller
                 'user_id' => Auth::id(),  
                 'clock_in' => $request->input('datetime'),
                 'title' => $request->input('title'),
-                'body' => $request->input('body'),   
+                'body' => $request->input('body'),
+                'flag' =>  $request->input('flag'),//shareallかdaily
+                
         ]);
         return redirect()->route('attendance.index')->with('success', '追加が完了しました。');
     }

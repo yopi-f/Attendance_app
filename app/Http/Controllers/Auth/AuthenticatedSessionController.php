@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use illuminate\Log;
+use App\Models\User;
+use Carbon\Carbon;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,6 +30,12 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        $user=auth()->user();
+         if(!$user->last_login_at ||Carbon::parse(!$user->last_login_at)->isToday() ){
+               $user->update([
+                     'last_login_at' => Carbon::now(),//日付がない場合と今日の日付でない場合は更新
+               ]);
+         }
 
         return redirect()->intended(route('attendance.index'))->with('success', 'ログインしました。');
     }

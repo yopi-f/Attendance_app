@@ -25,7 +25,8 @@
         <div class="d-flex justify-content-center flex-column align-items-center">      
             <textarea name="body" placeholder="内容を入力してください。" rows="7" 
             class="form-control my-4 rounded-lg" style="resize:horizontal; width:600px;"></textarea>
-            <button type="submit" class="btn btn-primary">送信</button> 
+            <input type="hidden" name="flag" value="shareall">
+            <button type="submit" class="btn btn-primary">保存</button> 
         </div>
     </div>
 </form>  

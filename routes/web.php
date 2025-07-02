@@ -21,9 +21,7 @@ Route::get('shareall.createpage', function () {
     return view('screenmoves.share_all',compact('now'));
 })->name('shareall.createpage');
     
-    Route::resource('attendance',AttendanceController::class)->only(
-    'index','store'
-    );
+
 Route::get('/dashboard', function () {
     return view('auth.login');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -32,7 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
+    Route::resource('attendance',AttendanceController::class)->only(
+    'index','store'
+    );
 
 });
 

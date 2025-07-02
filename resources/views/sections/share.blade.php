@@ -4,21 +4,21 @@
 全体共有一覧
 </div><!--3-->
 
- @foreach ($reportsall as $report )
-    <div class="card-body px-0"><!--1-->
+ @foreach ($shareall as $share )
+    <div class="card-body px-0 py-0"><!--1-->
    
         <div class="card mb-2 shadow rounded"><!--2-->
             <div class="card-body py-2 px-3"><!--3-->
                 <div class="d-flex justify-content-between align-items-center"><!--4-->
                     <div class="d-flex align-items-center gap-3"><!--5-->
                         <div class="fw-bold" style="min-width: 90px;">     
-                           {{ $report->user->name }}   
+                           {{ $share->user->name }}   
                         </div>
                         <div class="text-muted" style="min-width: 90px;">
-                              {{ $report->title }} 
+                              {{ $share->title }} 
                         </div>
                         <div class="text-muted ms-4" style="min-width: 90px;">
-                              {{ $report->body }} 
+                              {{ $share->body }} 
                         </div>
                        
                     </div><!--5-->                    

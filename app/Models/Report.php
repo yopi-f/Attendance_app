@@ -11,6 +11,7 @@ class report extends Model
         'clock_in',
         'title',
         'body',
+        'flag',
     ];
     public function user() {
         return $this->belongsTo(User::class);
