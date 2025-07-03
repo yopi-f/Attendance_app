@@ -9,23 +9,18 @@
                     <div class="card mb-2 shadow rounded"><!--5-->
                         <div class="card-body py-0 px-0"><!--6-->
                             <div class="d-flex justify-content-between align-items-center"><!--7-->
-                              <div class="d-flex align-items-center"><!--8-->
+                              <div class="d-flex align-items-center gap-4"><!--8-->
                                 @if ($report->flag == 'shareall')
-                                    <div class="fw-bold ms-1" style="min-width: 90px;">
-                                        全体共有
+                                    <div class="ms-2" style="min-width: 80px;">
+                                        {{$report->user->name.'さんが追加しました。'}}
                                     </div>
-                                    <div class="fw-bold" style="min-width: 90px;">
-                                        {{ $report->user->name.'さん' }}
-                                    </div>
-                                    <div class="text-muted" style="min-width: 90px;">
+
+                                    <div class="text-muted" style="min-width: 90x;">
                                         {{ $report->created_at }} 
                                     </div>
                                  @elseif ($report->flag == 'daily')   
-                                    <div class="fw-bold ms-1" style="min-width: 90px;">
-                                        日報
-                                    </div>
-                                    <div class="fw-bold" style="min-width: 90px;">
-                                        {{ $report->user->name.'さん' }}
+                                    <div class="ms-2" style="min-width: 80px;">
+                                        {{$report->user->name.'さんが追加しました。'}}
                                     </div>
                                     <div class="text-muted" style="min-width: 90px;">
                                         {{ $report->created_at }} 

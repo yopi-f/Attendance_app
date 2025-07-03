@@ -6,7 +6,7 @@
           @if (session()->has('success'))
            <span class="container-fluid w-25 d-flex justify-content-center alert alert-success py-0">{{ session()->get('success') }}</span>
           @endif
-  <div class="container-fluid d-flex justify-content-between">  
+  <div class="container-fluid d-flex justify-content-between px-0">  
 
          @include('components.sidebar_left')<!--（仮）サイドバー左(ログイン履歴)読み込み-->
    <div class="w-100 px-4 "><!--1-->
@@ -17,21 +17,20 @@
           @foreach ($dailyall as $daily)
             <div class="card-body px-0 py-0"><!--4-->
                 
-                    <div class="card mb-2 shadow rounded"><!--5-->
+                    <div class="card mb-2 shadow rounded btn btn-outline-secondary"><!--5-->
                         <div class="card-body py-2 px-3"><!--6-->
-                            <div class="d-flex justify-content-between align-items-center"><!--7-->
-                              <div class="d-flex align-items-center gap-3"><!--8-->
-                                 <div class="fw-bold" style="min-width: 90px;">
-                                    
+                          <a class="text-decoration-none text-dark" href="{{ route('attendance.show',['attendance' =>$daily->id]) }}"> 
+                            <div class="d-flex justify-content-between align-items-center"><!--7--> 
+                               <div class="d-flex align-items-center gap-3"><!--8-->
+                                 <div class="fw-bold me-3" style="min-width: 90px;">
                                       {{ $daily->user->name }}
-                                   
                                  </div>
                                  <div class="text-muted" style="min-width: 90px;">
-                                    {{ $daily->body }}
-                                 </div>
+                                    {{ $daily->body }} 
+                                 </div>   
                               </div><!--8-->
-                             
                             </div><!--7-->
+                           </a> 
                         </div><!--6-->
                     </div><!--5-->
                

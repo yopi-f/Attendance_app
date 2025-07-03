@@ -31,7 +31,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
         $user=auth()->user();
-         if(!$user->last_login_at ||Carbon::parse(!$user->last_login_at)->isToday() ){
+         if(!$user->last_login_at || !Carbon::parse($user->last_login_at)->isToday() ){
                $user->update([
                      'last_login_at' => Carbon::now(),//日付がない場合と今日の日付でない場合は更新
                ]);

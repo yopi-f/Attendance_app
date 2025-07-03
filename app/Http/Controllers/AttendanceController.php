@@ -35,8 +35,6 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {  
-
-
         Report::create([
                 'user_id' => Auth::id(),  
                 'clock_in' => $request->input('datetime'),
@@ -51,9 +49,10 @@ class AttendanceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $details_info = Report::findorfail($id);
+        return $details_info;
     }
 
     /**

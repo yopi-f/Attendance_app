@@ -7,10 +7,10 @@
             <div class="card-body px-0 py-0"><!--4-->
                 
                     <div class="card mb-2 shadow rounded"><!--5-->
-                        <div class="card-body py-2 px-3"><!--6-->
+                        <div class="card-body py-2 px-1"><!--6-->
                             <div class="d-flex justify-content-between align-items-center"><!--7-->
-                              <div class="d-flex align-items-center gap-3"><!--8-->
-                                 <div class="fw-bold" style="min-width: 90px;">
+                              <div class="d-flex align-items-center gap-4"><!--8-->
+                                 <div class="fw-bold ms-2" style="min-width: 90px;">
                                  {{ $userone->name.'さん' }}
                                  </div>
                                  <div class="text-muted" style="min-width: 90px;">
