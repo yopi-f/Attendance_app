@@ -12,7 +12,8 @@
                <a class="text-decoration-none text-dark" href="{{ route('attendance.show',['attendance' =>$share ->id]) }}">  
                 <div class="d-flex justify-content-between align-items-center"><!--4-->
                     <div class="d-flex align-items-center gap-3"><!--5-->
-                        <div class="fw-bold me-3" style="min-width: 90px;">     
+                        <div class="fw-bold me-3" 
+                        style="min-width: 90px;">     
                            {{ $share->user->name }}   
                         </div>
                         <div class="text-muted" style="min-width: 90px;">

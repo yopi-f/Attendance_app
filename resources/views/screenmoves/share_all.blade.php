@@ -12,7 +12,7 @@
     <!--日付入力-->
     <div class="d-flex align-items-center mx-4 gap-3">
         <div class="badge bg-secondary notification badge ms-2" style="font-size:16px;">日付</div>
-        <input type="date" name="datetime" value ="{{ $now->format("Y-m-d") }}" class="form-control w-25 my-3 rounded-lg">
+        <input type="datetime-local" name="datetime" value ="{{ $now->format("Y-m-d\TH:i") }}" class="form-control w-25 my-3 rounded-lg">
     </div>    
     <!--タイトル入力-->
     <div class="d-flex align-items-center mx-4 gap-2">

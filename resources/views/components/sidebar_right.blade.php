@@ -11,7 +11,7 @@
                             <div class="d-flex justify-content-between align-items-center"><!--7-->
                               <div class="d-flex align-items-center gap-4"><!--8-->
                                 @if ($report->flag == 'shareall')
-                                    <div class="ms-2" style="min-width: 80px;">
+                                    <div class="ms-2" style="min-width: 90px;">
                                         {{$report->user->name.'さんが追加しました。'}}
                                     </div>
 
@@ -19,7 +19,7 @@
                                         {{ $report->created_at }} 
                                     </div>
                                  @elseif ($report->flag == 'daily')   
-                                    <div class="ms-2" style="min-width: 80px;">
+                                    <div class="ms-2" style="min-width: 90px;">
                                         {{$report->user->name.'さんが追加しました。'}}
                                     </div>
                                     <div class="text-muted" style="min-width: 90px;">

@@ -13,6 +13,10 @@ class report extends Model
         'body',
         'flag',
     ];
+
+    protected $casts = [
+        'clock_in' => 'datetime',//Carbonインスタンスに変換
+    ];
     public function user() {
         return $this->belongsTo(User::class);
     }

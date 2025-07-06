@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('attendance',AttendanceController::class)->only(
-    'index','store','show',
+    'index','store','show','edit', 'update', 'destroy',
     );
 
 });
