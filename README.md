@@ -1,61 +1,48 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+📘 日報・全体共有管理アプリ
+個人日報や全体共有を簡単に記録・管理できる業務向けWebアプリです。
+Laravelやデータベース操作を中心に、小規模チームでの利用を意識した設計で開発しました。
+また、Laravel Breezeによる認証処理・ユーザーに紐づく日報管理・BootstrapによるUI構築などを行い、チーム利用や管理画面を想定した構成にしています。
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+🎥 デモ動画
+出退勤管理アプリ：https://youtu.be/ZwZeZQmZeuQ
 
-## About Laravel
+📌 技術スタック
+フレームワーク	Laravel 12.18.0
+言語	PHP 8.4.10
+データベース	MySQL（ローカル開発）
+フロント	Bladeテンプレート / Bootstrap 5
+認証機能	Laravel Breeze 
+環境	XAMPP + Windows 11
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+✅ 機能一覧
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ユーザー登録 / ログイン / ログアウト（Laravel Breeze）
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+ログイン記録（last_login_atカラムによる管理）
 
-## Learning Laravel
+日報投稿・編集・削除（各ログインユーザーに紐づいたデータ構成）
+※投稿・編集・削除時にセッションメッセージで通知
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+TOP画面での一覧表示（日報・全体共有別での表示）
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+未ログインユーザーはmiddlewareでアクセス制限
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🎨 UI/UXの工夫
+Bootstrap5を活用し、シンプルな業務画面
 
-## Laravel Sponsors
+Bladeテンプレートをパーツ分割（@include）して管理性アップ
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+日報と全体共有画面で色やhover表示を工夫し直感的に操作可能
 
-### Premium Partners
+### 🎨 コード構造・拡張性
+リレーション（UserテーブルとReportテーブル）を定義し構造を明確化
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+resourceルーティングによる簡潔なController設計
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 🚀 今後の改善点（予定）
+日報や全体共有事項をCSV形式でダウンロードできる機能を追加  
+  ↳ 主に、日報の内省的な内容を振り返る目的で活用
+出退勤機能の拡張：ログイン時間だけでなく出勤・退勤を個別に記録
+管理者による社員一覧＆出退勤履歴のCSV出力機能の追加
+投稿情報のUI改善：投稿時刻より投稿種別の明示にフォーカス
+ユーザー別の未読・既読状態を色分け表示し、視認性を向上。
