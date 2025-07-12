@@ -1,18 +1,25 @@
 # 📘 日報・全体共有管理アプリ
 個人日報や全体共有を簡単に記録・管理できる業務向けWebアプリです。
+
 Laravelやデータベース操作を中心に、小規模チームでの利用を意識した設計で開発しました。
+
 また、Laravel Breezeによる認証処理・ユーザーに紐づく日報管理・BootstrapによるUI構築などを行い、チーム利用や管理画面を想定した構成にしています。
 
 ## 🎥 デモ動画
 出退勤管理アプリ：https://youtu.be/ZwZeZQmZeuQ
 
 ## 📌 技術スタック
-フレームワーク	Laravel 12.18.0
-言語	PHP 8.4.10
-データベース	MySQL（ローカル開発）
-フロント	Bladeテンプレート / Bootstrap 5
-認証機能	Laravel Breeze 
-環境	XAMPP + Windows 11
+フレームワーク：Laravel 12.18.0
+
+言語：PHP 8.4.10
+
+データベース：MySQL（ローカル開発）
+
+フロント：Bladeテンプレート / Bootstrap 5
+
+認証機能：Laravel Breeze 
+
+環境：XAMPP + Windows 11
 
 ## ✅ 機能一覧
 ユーザー登録 / ログイン / ログアウト（Laravel Breeze）
